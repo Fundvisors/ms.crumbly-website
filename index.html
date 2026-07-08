@@ -420,6 +420,32 @@
     *{animation:none !important; transition:none !important;}
     html{scroll-behavior:auto;}
   }
+
+  /* ---------- floating whatsapp button ---------- */
+  .whatsapp-float{
+    position:fixed;
+    right:22px; bottom:22px;
+    z-index:100;
+    width:60px; height:60px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 22px rgba(37,211,102,0.45);
+    transition:transform .2s ease, box-shadow .2s ease;
+    animation:wa-pulse 2.6s ease-in-out infinite;
+  }
+  .whatsapp-float:hover{
+    transform:scale(1.08);
+    box-shadow:0 10px 26px rgba(37,211,102,0.6);
+  }
+  .whatsapp-float svg{width:30px; height:30px;}
+  @keyframes wa-pulse{
+    0%,100%{box-shadow:0 8px 22px rgba(37,211,102,0.45);}
+    50%{box-shadow:0 8px 22px rgba(37,211,102,0.75), 0 0 0 8px rgba(37,211,102,0.12);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .whatsapp-float{animation:none;}
+  }
 </style>
 </head>
 <body>
@@ -432,7 +458,7 @@
       <a href="#about">About</a>
       <a href="#order">Order</a>
     </nav>
-    <a class="nav-cta" href="https://instagram.com/ms.crumbly" target="_blank" rel="noopener">Order Now</a>
+    <a class="nav-cta" href="https://wa.me/919990971721?text=Hi%2C%20I%27d%20like%20to%20order%20from%20ms.crumbly%21%20%F0%9F%8D%AA" target="_blank" rel="noopener">Order Now</a>
   </div>
 </header>
 
@@ -463,7 +489,7 @@
 
   <div class="hero-ctas">
     <a class="btn btn-primary" href="#menu">View the menu</a>
-    <a class="btn btn-outline" href="https://instagram.com/ms.crumbly" target="_blank" rel="noopener">Order on Instagram</a>
+    <a class="btn btn-outline" href="https://wa.me/919990971721?text=Hi%2C%20I%27d%20like%20to%20order%20from%20ms.crumbly%21%20%F0%9F%8D%AA" target="_blank" rel="noopener">Order on WhatsApp</a>
   </div>
 </section>
 
@@ -580,18 +606,19 @@
   <div class="wrap">
     <div class="order-card">
       <h2>Ready to order?</h2>
-      <p>We take orders straight through Instagram — send us a DM with your flavours and pickup date.</p>
+      <p>Message us on WhatsApp or Instagram with your flavours and pickup date — we'll take it from there.</p>
 
       <ol class="order-steps">
         <li><span class="num">1</span> Pick your cup(s) from the menu above</li>
-        <li><span class="num">2</span> DM us on Instagram with flavours &amp; quantity</li>
+        <li><span class="num">2</span> Message us with flavours &amp; quantity</li>
         <li><span class="num">3</span> We confirm your pickup or delivery slot</li>
       </ol>
 
       <div class="qr-wrap"><img src="qr.png" alt="Scan QR code to follow ms.crumbly on Instagram"></div>
       <a class="ig-handle" href="https://instagram.com/ms.crumbly" target="_blank" rel="noopener">@ms.crumbly</a>
-      <div>
-        <a class="btn btn-primary" href="https://instagram.com/ms.crumbly" target="_blank" rel="noopener">Message us on Instagram</a>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="https://wa.me/919990971721?text=Hi%2C%20I%27d%20like%20to%20order%20from%20ms.crumbly%21%20%F0%9F%8D%AA" target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="btn btn-outline" href="https://instagram.com/ms.crumbly" target="_blank" rel="noopener">Message on Instagram</a>
       </div>
     </div>
   </div>
@@ -608,6 +635,10 @@
   </div>
   <div class="copyright">&copy; <span id="year"></span> ms.crumbly · mscrumbly.in</div>
 </footer>
+
+<a class="whatsapp-float" href="https://wa.me/919990971721?text=Hi%2C%20I%27d%20like%20to%20order%20from%20ms.crumbly%21%20%F0%9F%8D%AA" target="_blank" rel="noopener" aria-label="Chat with ms.crumbly on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.33 4.95L2 22l5.29-1.39a9.9 9.9 0 004.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.07c-.24.68-1.4 1.32-1.93 1.4-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.62-.6-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09.99-2.37c.26-.28.56-.35.75-.35s.38 0 .54.01c.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.52 1.9 1.05.94 1.93 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.09 1.63.77 1.91.91.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
